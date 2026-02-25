@@ -1,0 +1,68 @@
+USE [ITSystemDB]
+GO
+
+/****** Object:  Table [dbo].[IT_Asset]    Script Date: 25/2/2026 15:50:40 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[IT_Asset](
+ [ID] [int] IDENTITY(1,1) NOT NULL,
+ [AssetCode] [nvarchar](20) NULL,
+ [AssetName] [nvarchar](100) NOT NULL,
+ [AssetType] [nvarchar](50) NULL,
+ [Model] [nvarchar](200) NULL,
+ [SerialNumber] [nvarchar](100) NULL,
+ [CPU] [nvarchar](100) NULL,
+ [RAM] [nvarchar](50) NULL,
+ [Storage] [nvarchar](100) NULL,
+ [OSName] [nvarchar](100) NULL,
+ [OSVersion] [nvarchar](50) NULL,
+ [OSBuild] [nvarchar](50) NULL,
+ [Status] [nvarchar](50) NULL,
+ [EmpName] [nvarchar](100) NULL,
+ [Department] [nvarchar](50) NULL,
+ [Location] [nvarchar](100) NULL,
+ [Vendor] [nvarchar](100) NULL,
+ [PoNum] [nvarchar](20) NULL,
+ [InvNum] [nvarchar](50) NULL,
+ [PurchaseDate] [date] NULL,
+ [WarrantyExpire] [date] NULL,
+ [Note] [nvarchar](max) NULL,
+ [flag_remove] [int] NOT NULL,
+ [CreatedBy] [nvarchar](50) NULL,
+ [CreatedDate] [datetime] NOT NULL,
+ [UpdatedBy] [nvarchar](50) NULL,
+ [UpdatedDate] [datetime] NOT NULL,
+ [Brand] [nvarchar](50) NULL,
+ [Site] [nchar](10) NULL,
+ CONSTRAINT [PK__IT_Asset__3214EC270A00E7CE] PRIMARY KEY CLUSTERED 
+(
+ [ID] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY],
+ CONSTRAINT [UQ__IT_Asset__2DDE52408897BDC0] UNIQUE NONCLUSTERED 
+(
+ [AssetCode] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY] TEXTIMAGE_ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[IT_Asset] ADD  CONSTRAINT [DF__IT_Asset__flag_r__60A75C0F]  DEFAULT ((0)) FOR [flag_remove]
+GO
+
+ALTER TABLE [dbo].[IT_Asset] ADD  CONSTRAINT [DF_IT_Asset_CreatedBy]  DEFAULT (suser_sname()) FOR [CreatedBy]
+GO
+
+ALTER TABLE [dbo].[IT_Asset] ADD  CONSTRAINT [DF__IT_Asset__Create__619B8048]  DEFAULT (getdate()) FOR [CreatedDate]
+GO
+
+ALTER TABLE [dbo].[IT_Asset] ADD  CONSTRAINT [DF_IT_Asset_UpdatedBy]  DEFAULT (suser_sname()) FOR [UpdatedBy]
+GO
+
+ALTER TABLE [dbo].[IT_Asset] ADD  CONSTRAINT [DF__IT_Asset__Update__628FA481]  DEFAULT (getdate()) FOR [UpdatedDate]
+GO
+
+
+ 
