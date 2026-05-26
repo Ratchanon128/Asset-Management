@@ -1,5 +1,19 @@
 # Asset Management
 
+A Full-stack Asset Management Web Application developed to track, organize, and manage corporate hardware assets (computers, monitors, and laptops), improving procurement planning and maintenance workflows.
+
+## Features
+- **Asset Inventory:** tracking and organizing of corporate IT hardware.
+- **Maintenance Management:** Log and monitor hardware maintenance status and repair history.
+- **Search & Filter:** Easily filter assets by type, department, or availability status.
+
+## Tech Stack
+- **Frontend:** Vue.js, JavaScript
+- **Backend:** Node.js
+- **Database:** MSSQL
+
+---
+
 This template should help get you started developing with Vue 3 in Vite.
 
 ## Recommended IDE Setup
